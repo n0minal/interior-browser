@@ -1,0 +1,98 @@
+* {
+    font-family: 'Roboto Condensed Light';
+}
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    background: rgba(0,0,0,.7);
+    max-height: 600px;
+}
+
+.header {
+    background: #ffcc00;
+    text-align: center;
+    margin-bottom: 0;
+    position: relative;                 
+}
+
+.brand {
+    font-size: 22px;
+    padding: 10px;
+    margin: 0;
+}
+
+.close {
+    position: absolute;
+}
+
+.accordion {
+    background-color: rgba(0,0,0, .6);
+    
+}
+.accordion:nth-child(even) {
+    background-color: rgba(0,0,0, .2) !important;
+}
+.accordion-header {
+    color: #f3f3f3;
+    padding: 10px;
+}
+.accordion-body {
+    max-height: 420px;
+    overflow: auto;
+}
+.accordion-body > ul {
+    padding: 0;
+    margin: 0;
+}
+.accordion-body > ul > li {
+    padding-left: 10px;
+    list-style: none;
+    background: rgba(30, 30, 30, .7);
+    padding: 6px;
+    color: #f3f3f3;
+}
+.accordion-body > ul > li:nth-child(even) {
+    background: rgba(50, 50, 50, .8);
+}
+.btn-expand {
+    background: #ffcc00;
+    border-radius: 2px;
+    border: none;
+    font-size: 12px;
+    font-weight: bolder;
+    padding: 5px;
+    float: right;
+}
+
+.btn-enter {
+    background: #22aa22;
+    color: #f3f3f3;
+    border-radius: 2px;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: 5px;
+    float: right;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #777; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #999; 
+}

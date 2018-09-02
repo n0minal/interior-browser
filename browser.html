@@ -2,91 +2,74 @@
     <head>
         <title>n0minal's Interiors Browser</title>
         <link rel="stylesheet" href="./fonts/RobotoCondensed-Light.css">
-        <style>
-            * {
-                font-family: 'Roboto Condensed Light';
-            }
-
-            .wrapper {
-                width: 960px;
-                margin: 0 auto;
-                background: rgba(0,0,0,.7);
-                height: 500px;
-            }
-
-            .header {
-                background: #ffcc00;
-                text-align: center;
-                font-size: 22px;
-                padding: 5px;
-                margin-bottom: 0;                    
-            }
-            th {
-                color: #ffcc00;
-            }
-            tr {
-                background-color: rgba(0,0,0, .6);
-            }
-            tr:nth-child(even) {
-                background-color: rgba(0,0,0, .2) !important;
-            }
-            td {
-                padding: 10px;
-                color: #f3f3f3;
-                text-align: center;
-            }
-            .btn-go {
-                background: #ffcc00;
-                border-radius: 2px;
-                border: none;
-                font-weight: bolder;
-                padding: 5px;
-            }
-        </style>
+        <link rel="stylesheet" href="./browser.css">
     </head>
     <body>
         
         <div id="app-ibrowser">
             <div class="wrapper">
-                <h1 class="header">n0minal's Interiors Browser Tool</h1>
-                <table style="width:100%">
-                    <tr>
-                        <th>Group</th>
-                        <th>Interior</th> 
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>Bunkers</td>
-                        <td>DesertBunker</td> 
-                        <td>
-                          <button class="btn-go">
-                            ENTER
-                          </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bunkers</td>
-                        <td>SmokeTreeBunker</td> 
-                        <td>
-                          <button class="btn-go">
-                            ENTER
-                          </button>
-                        </td>
-                    </tr>
-                </table>
+                <div class="header">
+                    <h1 class="brand">n0minal's Interiors Browser Tool</h1>
+                    <button class="close">X</button>
+                </div>
+                <div class="accordion" v-for="key in keys">
+                    <div class="accordion-header" v-if="!active_key.length || active_key === key">
+                        <span>{{key}}</span>
+                        <button class="btn-expand" @click="expand(key)">{{ active_key === key ? "< BACK" : "OPEN >"}}</button>
+                    </div>
+                    <div class="accordion-body" v-if="active_key === key">
+                        <ul>
+                            <li v-for="i in interiors">
+                                <span>{{i.name}}</span>
+                                <button class="btn-enter" @click="join(i)">ENTER</button>
+                            </li>
+                        </ul>
+                    </div>       
+                </div>
             </div>
         </div>
         
 
         <script src="./vue.min.js"></script>
+        <script type="text/javascript" src="./interiors.js"></script>
         <script>
         let ibrowser = new Vue({
           el: "#app-ibrowser",
           data: {
-            interiors: []
+            keys: [],
+            interiors: [],
+            active_key: ""
           },
           created: function () {
             
+            groups.map((group) => {
+
+                Object.keys(group).forEach((key) => {
+                    this.keys.push(key);
+                });
+            })
+            
+          },
+          methods: {
+              expand(key) {
+                if(this.active_key === key) return this.active_key = "";
+                
+                groups.map((group) => {
+                    
+                    Object.keys(group).forEach((g) => {
+                        if(key === g) {
+                            this.interiors.pop();
+                            this.interiors = group[key];
+                        }
+                    });
+                });
+                return this.active_key = key;   
+              },
+
+              join(interior) {
+                  console.log(`Joining: ${interior.name} | x: ${interior.location.x}, y: ${interior.location.y}, z: ${interior.location.z}`);
+                  mp.trigger('enterInterior', interior);
+              }
           }
         });
         </script>

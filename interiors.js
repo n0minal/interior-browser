@@ -1,4 +1,4 @@
-{
+var groups = [{
     "Bunkers": [
     {
         "name": "DesertBunker",
@@ -99,6 +99,8 @@
             "z": 19.9597
         }
     }],
+},
+{
     "Apartments": [
     {
         "name": "Modern 1 Apartment",
@@ -316,6 +318,8 @@
             "z": 196.6862
         }
     }],
+},
+{
     "Arcadius Business Centre": [
     {
         "name": "Executive Rich",
@@ -434,6 +438,8 @@
             "z": 166.0000
         }
     }],
+},
+{
     "Maze Bank": [
     {
         "name": "Executive Rich",
@@ -552,6 +558,8 @@
             "z": 284.0000
         }
     }],
+},
+{
     "Lom Bank": [
     {
         "name":"Executive Rich",
@@ -670,6 +678,8 @@
             "z": 104.2000
         }
     }],
+},
+{
     "Maze Bank West": [
     {
         "name": "Executive Rich", 
@@ -788,6 +798,8 @@
             "z":  77.2000
         }
     }],
+},
+{
     "Clubhouses & Warehouses": [        
     {
         "name": "Clubhouse 1",
@@ -888,6 +900,8 @@
             "z": -39.64699
         }
     }],
+},
+{
     "Special Locations": [
     {
         "name": "Los Santos Customs",
@@ -1024,6 +1038,8 @@
             "z": 74.84512
         }
     }],
+},
+{
     "Other Special Locations (Multiple IPLs)": [
     {   
         "name": "Gunrunning Heist Yacht",
@@ -1207,6 +1223,8 @@
             "z": 24.5378
         }
     }],
+},
+{
     "Car Garages": [
     {
         "name": "2 Car Garage",
@@ -1232,6 +1250,8 @@
            "z": -99.66071
         }
     }],
+},
+{
     "Other Apartments (no IPL)": [
     {
         "name": "Low End Apartment",
@@ -1361,6 +1381,8 @@
             "z": 97.69459
         }
     }],
+},
+{
     "Misc (no IPL)": [
     {
         "name": "Bunker Interior",
@@ -1490,6 +1512,5 @@
             "z":  206.1398
         }
     }]
-}
-    
+}]; 
 
