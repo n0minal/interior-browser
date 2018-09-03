@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>n0minal's Interiors Browser</title>
+        <title>n0minal's Interior Browser Tool</title>
         <link rel="stylesheet" href="./fonts/RobotoCondensed-Light.css">
         <link rel="stylesheet" href="./browser.css">
     </head>
@@ -9,8 +9,8 @@
         <div id="app-ibrowser">
             <div class="wrapper">
                 <div class="header">
-                    <h1 class="brand">n0minal's Interiors Browser Tool</h1>
-                    <button class="close">X</button>
+                    <h1 class="brand">Interior Browser Tool</h1>
+                    <button class="btn-close" @click="close()">close (X)</button>
                 </div>
                 <div class="accordion" v-for="key in keys">
                     <div class="accordion-header" v-if="!active_key.length || active_key === key">
@@ -67,8 +67,12 @@
               },
 
               join(interior) {
-                  console.log(`Joining: ${interior.name} | x: ${interior.location.x}, y: ${interior.location.y}, z: ${interior.location.z}`);
-                  mp.trigger('enterInterior', interior);
+                  console.log(`Entering in interior: ${JSON.stringify(interior)}`);
+                  mp.trigger('enterInterior', JSON.stringify(interior));
+              },
+
+              close() {
+                  mp.trigger('closeBrowser');
               }
           }
         });
